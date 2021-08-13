@@ -1,5 +1,7 @@
 package com.tsswebapps.tsspixserver.domain.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -38,4 +43,12 @@ public class Contratos {
 	
 	@Column(nullable = false)
 	private String refrshToken;
+	
+//	@CreationTimestamp
+//	@Column(nullable = false, columnDefinition = "datetime")
+//	private LocalDateTime dtCriacao;
+//	
+//	@UpdateTimestamp
+//	@Column(nullable = false, columnDefinition = "datetime")
+//	private LocalDateTime dtAlteracao;	
 }

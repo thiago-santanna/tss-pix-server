@@ -1,3 +1,4 @@
+
 package com.tsswebapps.tsspixserver.domain.model;
 
 import java.time.LocalDateTime;
@@ -11,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -35,7 +36,7 @@ public class Clientes {
 	private String nome;
 	
 	@ManyToOne
-	@JoinColumn(nullable = false, referencedColumnName = "id")
+	@JoinColumn(name = "banco_id", nullable = false, referencedColumnName = "id")
 	private Banco banco;
 	
 	@Column(nullable = false)
@@ -44,25 +45,34 @@ public class Clientes {
 	@Column(nullable = false)
 	private String agencia;
 	
-	@Column(nullable = false)
+	@NotBlank
+	@Column(name = "chave_pix")
 	private String chavePix;	
 	
-	@Column(nullable = false)
+	@NotBlank
+	@Column
 	private String cnpj;
 	
-	@Column(nullable = false)
+	@NotBlank
+	@Column
 	private String cpf;
 	
-	@Column(nullable = false)
+	@NotBlank
+	@Column(name = "client_id")
 	private String clientId;
 	
-	@Column(nullable = false)
+	@NotBlank
+	@Column(name = "client_secret")
 	private String clientSecret;
 	
 	@Column(nullable = false)
 	private String email;	
 	
 	@Column
+	private String telefone;
+	
+	@NotBlank
+	@Column(name = "token_jwt")
 	private String tokenJwt;
 	
 	@Column(nullable = false)
@@ -72,20 +82,16 @@ public class Clientes {
 	private String complementoEndereco;
 	
 	@OneToOne
-	@JoinColumn(nullable = false, referencedColumnName = "id")
-	private Rua endereco;
+	@JoinColumn(name = "rua_id", nullable = false, referencedColumnName = "id")
+	private Rua rua;
 	
-	@OneToMany
-	@JoinColumn(name = "cliente_telefone", nullable = false, referencedColumnName = "id")
-	private List<Telefone> telefone = new ArrayList<>();	
-	
-	@CreationTimestamp
-	@Column(nullable = false, columnDefinition = "datetime")
-	private LocalDateTime dtCriacao;
-	
-	@UpdateTimestamp
-	@Column(nullable = false, columnDefinition = "datetime")
-	private LocalDateTime dtAlteracao;
+//	@CreationTimestamp
+//	@Column(nullable = false, columnDefinition = "datetime")
+//	private LocalDateTime dtCriacao;
+//	
+//	@UpdateTimestamp
+//	@Column(nullable = false, columnDefinition = "datetime")
+//	private LocalDateTime dtAlteracao;
 	
 	@Column(nullable = false)
 	private Situacao situacao;

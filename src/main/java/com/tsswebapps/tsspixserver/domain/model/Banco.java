@@ -22,9 +22,9 @@ public class Banco {
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column(nullable = false)
+	@Column(name = "url_homologacao")
 	private String urlHomologacao;
 	
-	@Column(nullable = false)
+	@Column(name = "url_producao")
 	private String urlProducao;
 }

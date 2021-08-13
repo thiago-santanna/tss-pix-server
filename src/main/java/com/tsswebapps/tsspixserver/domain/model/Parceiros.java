@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -33,10 +32,13 @@ public class Parceiros {
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column(nullable = false)
+	@Column
+	private String telefone;	
+	
+	@Column
 	private String cnpj;
 	
-	@Column(nullable = false)
+	@Column
 	private String cpf;
 	
 	@Column(nullable = false)
@@ -58,20 +60,16 @@ public class Parceiros {
 	private String complementoEndereco;
 	
 	@OneToOne
-	@JoinColumn(nullable = false, referencedColumnName = "id")
-	private Rua endereco;
-	
-	@OneToMany
-	@JoinColumn(name = "parceiro_telefone",nullable = false, referencedColumnName = "id")
-	private List<Telefone> telefone = new ArrayList<>();	
-	
-	@CreationTimestamp
-	@Column(nullable = false, columnDefinition = "datetime")
-	private LocalDateTime dtCriacao;
-	
-	@UpdateTimestamp
-	@Column(nullable = false, columnDefinition = "datetime")
-	private LocalDateTime dtAlteracao;
+	@JoinColumn(name = "rua_id", nullable = false, referencedColumnName = "id")
+	private Rua rua;
+		
+//	@CreationTimestamp
+//	@Column(nullable = false, columnDefinition = "datetime")
+//	private LocalDateTime dtCriacao;
+//	
+//	@UpdateTimestamp
+//	@Column(nullable = false, columnDefinition = "datetime")
+//	private LocalDateTime dtAlteracao;
 	
 	@Column(nullable = false)
 	private Situacao situacao;
