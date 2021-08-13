@@ -76,7 +76,7 @@ public class Clientes {
 	private Rua endereco;
 	
 	@OneToMany
-	@JoinColumn(nullable = false, referencedColumnName = "id")
+	@JoinColumn(name = "cliente_telefone", nullable = false, referencedColumnName = "id")
 	private List<Telefone> telefone = new ArrayList<>();	
 	
 	@CreationTimestamp

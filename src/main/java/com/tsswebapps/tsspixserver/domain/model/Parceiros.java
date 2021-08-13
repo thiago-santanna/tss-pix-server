@@ -62,7 +62,7 @@ public class Parceiros {
 	private Rua endereco;
 	
 	@OneToMany
-	@JoinColumn(nullable = false, referencedColumnName = "id")
+	@JoinColumn(name = "parceiro_telefone",nullable = false, referencedColumnName = "id")
 	private List<Telefone> telefone = new ArrayList<>();	
 	
 	@CreationTimestamp

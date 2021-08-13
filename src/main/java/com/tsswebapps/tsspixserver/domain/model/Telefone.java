@@ -20,8 +20,4 @@ public class Telefone {
 	
 	@Column(nullable = false)
 	private String numero;
-	
-	@Column
-	private String whatsApp;
-
 }
